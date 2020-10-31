@@ -1,0 +1,181 @@
+$imgwidth: 400px;
+
+.featProduct {
+  width: $imgwidth;
+}
+#papaDiv{
+  display: grid;
+  grid-template-rows: repeat(3, 450px);
+  width: 80%;
+  margin: 0 auto;
+}
+
+#butterfly_container {
+  display: inline-block;
+  z-index: 2;
+}
+
+#pslDiv {
+  justify-self: end;
+}
+
+
+
+/**
+* BUTTERFLY FLAPPING*/
+
+
+
+@mixin vendor-prefix($name, $argument...) {
+  -webkit-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -o-#{$name}: $argument;
+  #{$name}: $argument;
+}
+
+@mixin prop-vendor-prefix($name, $argument...) {
+  #{$name}: -webkit-#{$argument};
+  #{$name}: -moz-#{$argument};
+  #{$name}: -ms-#{$argument};
+  #{$name}: -o-#{$argument};
+  #{$name}: $argument;
+}
+
+@mixin hardware_accelerate{
+  @include vendor-prefix(transform, translateZ(0));
+  @include vendor-prefix(transform-style, preserve-3d);
+  @include vendor-prefix(backface-visibility, hidden);
+}
+
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes( left-wing-flap ){
+  0%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(1) rotate3d( 0,1,0, 60deg));
+  }
+  
+  50%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(1) rotate3d( 0,1,0, -70deg));
+  }
+  
+  100%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(1) rotate3d( 0,1,0, 60deg));
+  }
+}
+
+
+@include keyframes( right-wing-flap ){
+  0%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(-1) rotate3d( 0,1,0, 60deg));
+  }
+  
+  50%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(-1) rotate3d( 0,1,0, -70deg));
+  }
+  
+  100%{
+    @include vendor-prefix( transform, translate3d(0,0,0) scaleX(-1) rotate3d( 0,1,0, 60deg));
+  }
+}
+
+.butterfly_container{
+  $w : 100px;
+  $h : 100px;
+  $d: 100px;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  z-index: 2;
+  width: $w;
+  height: $h;
+  margin-left: -$w / 2;
+  margin-top: -$h / 2;
+  @include vendor-prefix( transform-origin, 50% 50% );
+  @include vendor-prefix( transform-style, preserve-3d);
+  @include vendor-prefix( animation, rotatingY 10s linear infinite );
+  
+  var{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $w;
+    height: $h;
+    margin-left: -$w / 2;
+    margin-top: -$h / 2;
+    @include vendor-prefix( transform-style, preserve-3d);
+    
+    &.rotate3d{
+      @include vendor-prefix( transform, rotate3d( 1,.5,0, 70deg));
+    }
+    
+    &.translate3d{
+      @include vendor-prefix( transform, translate3d( -300px,0px,0px));
+    }
+    
+    &.translate3d-1{
+      @include vendor-prefix(animation, fluttering 10s ease-in-out infinite );
+    }
+  }
+  
+  figure.butterfly{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    @include vendor-prefix( transform-style, preserve-3d);
+    @include vendor-prefix( transform-origin, 50% 50% );
+    //@include vendor-prefix(animation, rotating 30s linear infinite );
+    .wing{
+      position: absolute;
+      width: 50px;
+      height: 100px;
+      @include vendor-prefix( transform-style, preserve-3d);
+      @include vendor-prefix( transform-origin, 50% 50% );
+      @include vendor-prefix( transform, translate3d(0,0,0) rotate3d( 1,.5,0, 45deg));
+    
+      &.right{
+        @include vendor-prefix( transform-origin, 50px 50px );
+        @include vendor-prefix( transform, translate3d(0px,0,0) scaleX(-1) rotate3d( 0,1,0, 45deg));
+        @include vendor-prefix(animation, right-wing-flap .5s ease-in-out infinite );
+        filter: FlipH;
+        -ms-filter: "FlipH";
+     }
+    
+      &.left{
+        @include vendor-prefix( transform-origin, 50px 50px );
+        @include vendor-prefix(animation, left-wing-flap .5s ease-in-out infinite );
+      }
+    
+      use{
+        display: block;
+        @include vendor-prefix( transform-style, preserve-3d);
+        fill: url(#image);
+        stroke: white;
+      }
+    }
+  }
+}
+
+  
+//
+

@@ -1,0 +1,182 @@
+.featProduct {
+  width: 400px;
+}
+
+#papaDiv {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (450px)[3];
+      grid-template-rows: repeat(3, 450px);
+  width: 80%;
+  margin: 0 auto;
+}
+
+#butterfly_container {
+  display: inline-block;
+  z-index: 2;
+}
+
+#pslDiv {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+/**
+* BUTTERFLY FLAPPING*/
+@-webkit-keyframes left-wing-flap {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, -70deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, -70deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+  }
+}
+
+@keyframes left-wing-flap {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, -70deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, -70deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(1) rotate3d(0, 1, 0, 60deg);
+  }
+}
+
+@-webkit-keyframes right-wing-flap {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, -70deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, -70deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+  }
+}
+
+@keyframes right-wing-flap {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, -70deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, -70deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+    transform: translate3d(0, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 60deg);
+  }
+}
+
+.butterfly_container {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-animation: rotatingY 10s linear infinite;
+  animation: rotatingY 10s linear infinite;
+}
+
+.butterfly_container var {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.butterfly_container var.rotate3d {
+  -webkit-transform: rotate3d(1, 0.5, 0, 70deg);
+  transform: rotate3d(1, 0.5, 0, 70deg);
+}
+
+.butterfly_container var.translate3d {
+  -webkit-transform: translate3d(-300px, 0px, 0px);
+  transform: translate3d(-300px, 0px, 0px);
+}
+
+.butterfly_container var.translate3d-1 {
+  -webkit-animation: fluttering 10s ease-in-out infinite;
+  animation: fluttering 10s ease-in-out infinite;
+}
+
+.butterfly_container figure.butterfly {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.butterfly_container figure.butterfly .wing {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: translate3d(0, 0, 0) rotate3d(1, 0.5, 0, 45deg);
+  transform: translate3d(0, 0, 0) rotate3d(1, 0.5, 0, 45deg);
+}
+
+.butterfly_container figure.butterfly .wing.right {
+  -webkit-transform-origin: 50px 50px;
+  transform-origin: 50px 50px;
+  -webkit-transform: translate3d(0px, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 45deg);
+  transform: translate3d(0px, 0, 0) scaleX(-1) rotate3d(0, 1, 0, 45deg);
+  -webkit-animation: right-wing-flap 0.5s ease-in-out infinite;
+  animation: right-wing-flap 0.5s ease-in-out infinite;
+  -webkit-filter: FlipH;
+          filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.butterfly_container figure.butterfly .wing.left {
+  -webkit-transform-origin: 50px 50px;
+  transform-origin: 50px 50px;
+  -webkit-animation: left-wing-flap 0.5s ease-in-out infinite;
+  animation: left-wing-flap 0.5s ease-in-out infinite;
+}
+
+.butterfly_container figure.butterfly .wing use {
+  display: block;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  fill: url(#image);
+  stroke: white;
+}
+/*# sourceMappingURL=main.css.map */

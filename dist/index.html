@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  
+  <title>Deco Miami</title>
+</head>
+<body>
+  <div class="butterfly_container">
+    <var class="rotate3d">
+   
+    <var class="translate3d">
+    <var class="translate3d-1">
+    <figure class="butterfly">
+      <img class="wing left" src="../assets/BUTTERFLY_leftwing.png">   
+      <img class="wing right" id="rightWing" src="../assets/BUTTERFLY_leftwing.png">
+     </figure>
+    </var>
+    </var>
+    
+    </var>
+  </div>
+  
+  <div id="papaDiv">
+    <div class="productDiv" id="starsStickerDiv">
+      <img class="featProduct" id="starsStickerImg" src="../assets/StarsInYourEyes-1.png" alt="stars in your eyes nail art stickers">
+    </div>
+    <div class="productDiv" id="pslDiv">
+      <img class="featProduct" id="pslImg" src="../assets/PSL.png" alt="PSL nail lacquer">
+    </div>
+    <div class="productDiv" id="cocoOilDiv">
+      <img class="featProduct" id="cocoOilImg" src="../assets/C003_coco.png" alt="coconut cuticle oil">
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/MotionPathPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+  <script src="./main.js"></script> 
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(MotionPathPlugin);
+
+    gsap.to(".productDiv", {duration: 2, y: 50, repeat: -1, yoyo: true})
+    
+    const boxes = gsap.utils.toArray('.productDiv');
+    boxes.forEach(productDiv => {
+      gsap.from(productDiv, {
+      scrollTrigger: {
+        trigger: productDiv,
+        immediateRender: false,
+        toggleActions: "play reset restart reset"
+      },
+      duration: 3, 
+      opacity: 0})
+    })
+
+    gsap.to('.butterfly_container', {
+      duration: 150,
+      motionPath: {
+        path: "M 1 0 C 14 53 44 45 52 52 C 127 521 687 147 1000 513 C 1075 1008 265 459 60 1200 C 580 952 644 1466 1000 1200"
+      }
+    })
+    
+  </script>
+</body>
+</html>
