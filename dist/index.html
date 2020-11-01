@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   
   <title>Deco Miami</title>
 </head>
 <body>
-  <div class="butterfly_container">
+  <div class="butterfly_container" id="circle">
     <var class="rotate3d">
    
     <var class="translate3d">
@@ -23,17 +24,40 @@
     </var>
   </div>
   
-  <div id="papaDiv">
-    <div class="productDiv" id="starsStickerDiv">
-      <img class="featProduct" id="starsStickerImg" src="../assets/StarsInYourEyes-1.png" alt="stars in your eyes nail art stickers">
+  <main id="papaDiv">
+    <div class="productDiv productRow" id="stickersDiv">
+      <img class="featProduct" id="stickersImg" src="../assets/StarsInYourEyes-1.png" alt="stars in your eyes nail art stickers">
     </div>
-    <div class="productDiv" id="pslDiv">
+    <div class="textDiv productRow" id="stickersTextDiv">
+      <p>DROPPED</p>
+      <h2>NAIL ART STICKERS</h2>
+      <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
+      <button>SHOW ME</button>
+    </div>
+    <div class="shadowDiv" id="stickersShadow">
+    </div>
+    
+    <div class="productDiv productRow" id="pslDiv">
       <img class="featProduct" id="pslImg" src="../assets/PSL.png" alt="PSL nail lacquer">
     </div>
-    <div class="productDiv" id="cocoOilDiv">
+    <div class="textDiv productRow" id="pslTextDiv">
+      <h2>NAIL LACQUER</h2>
+      <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
+      <button>SHOW ME</button>
+    </div>
+    <div class="shadowDiv" id="pslShadow">
+    </div>
+    <div class="productDiv productRow" id="cocoOilDiv">
       <img class="featProduct" id="cocoOilImg" src="../assets/C003_coco.png" alt="coconut cuticle oil">
     </div>
-  </div>
+    <div class="textDiv productRow" id="oilTextDiv">
+      <h2>CUTICLE OIL</h2>
+      <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
+      <button>SHOW ME</button>
+    </div>
+    <div class="shadowDiv" id="cocoOilShadow">
+    </div>
+  </main>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/MotionPathPlugin.min.js"></script>
@@ -44,12 +68,19 @@
     gsap.registerPlugin(MotionPathPlugin);
 
     gsap.to(".productDiv", {duration: 2, y: 50, repeat: -1, yoyo: true})
+
+    gsap.to(".shadowDiv", {
+      duration: 2,
+      width: 100,
+      repeat: -1,
+      yoyo: true
+    })
     
-    const boxes = gsap.utils.toArray('.productDiv');
-    boxes.forEach(productDiv => {
-      gsap.from(productDiv, {
+    const boxes = gsap.utils.toArray('.productRow');
+    boxes.forEach(productRow => {
+      gsap.from(productRow, {
       scrollTrigger: {
-        trigger: productDiv,
+        trigger: productRow,
         immediateRender: false,
         toggleActions: "play reset restart reset"
       },
@@ -60,9 +91,32 @@
     gsap.to('.butterfly_container', {
       duration: 150,
       motionPath: {
-        path: "M 1 0 C 14 53 44 45 52 52 C 127 521 687 147 1000 513 C 1075 1008 265 459 60 1200 C 580 952 644 1466 1000 1200"
-      }
+        path: "M 20 0 C 20 53 44 45 52 52 C 387 169 666 -54 748 187"
+      },
+      yoyo: true
     })
+
+    gsap.to('body', {
+      backgroundColor: "#E2E8FF",
+      scrollTrigger: {
+        trigger: '#pslDiv',
+        start: 'top center',
+        immediateRender: false,
+        toggleActions: "play reset restart reset"
+
+        }
+    })
+    
+    gsap.to('body', {
+      backgroundColor: "white",
+      scrollTrigger: {
+        trigger: '#cocoOilDiv',
+        start: 'top center',
+        immediateRender: false,
+        toggleActions: "play reset play reset"
+        }
+    })
+
     
   </script>
 </body>
