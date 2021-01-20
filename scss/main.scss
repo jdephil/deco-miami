@@ -45,8 +45,9 @@ p{
   width: 70px;
   justify-self: center;
   align-self: center;
-  -webkit-box-shadow: 0px 1px 27px 37px grey; 
+  -webkit-box-shadow: 0px 1px 37px grey; 
   box-shadow: 0px 1px 27px 15px grey;
+  -webkit-appearance: none;
 }
 
 .showMeBtn {
