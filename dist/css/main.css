@@ -3,12 +3,21 @@
   src: font-url("NotSoStoutDeco.woff") format("woff");
 }
 
+body {
+  background-color: #E2E8FF;
+}
+
 h1, h2, h3, h4 {
   font-family: "NotSoStoutDeco";
 }
 
 p {
   font-family: "Anonymous Pro", monospace;
+}
+
+.showMeBtn {
+  background-color: black;
+  color: white;
 }
 
 .featProduct {
@@ -33,6 +42,22 @@ p {
       align-self: center;
   -webkit-box-shadow: 0px 1px 27px 37px grey;
   box-shadow: 0px 1px 27px 15px grey;
+}
+
+.showMeBtn {
+  background-color: black;
+  color: #E2E8FF;
+  font-family: "Anonymous Pro", monospace;
+  width: 100px;
+  height: 30px;
+  font-size: .95em;
+  border-radius: 5px;
+}
+
+.productOptionsImg {
+  width: 100px;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 #papaDiv {
@@ -64,14 +89,14 @@ p {
   grid-column: 1;
 }
 
-#pslDiv {
+#lacquerDiv {
   -ms-grid-row: 3;
   grid-row: 3;
   -ms-grid-column: 4;
   grid-column: 4;
 }
 
-#pslTextDiv {
+#lacquerTextDiv {
   -ms-grid-row: 3;
   grid-row: 3;
   -ms-grid-column: 1;
@@ -79,7 +104,7 @@ p {
   grid-column: 1/3;
 }
 
-#pslShadow {
+#lacquerShadow {
   -ms-grid-row: 4;
   grid-row: 4;
   -ms-grid-column: 4;
@@ -177,7 +202,6 @@ p {
 
 .butterfly_container {
   position: absolute;
-  left: 10%;
   top: 20%;
   z-index: 2;
   width: 100px;

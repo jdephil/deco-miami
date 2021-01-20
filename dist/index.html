@@ -32,28 +32,38 @@
       <p>DROPPED</p>
       <h2>NAIL ART STICKERS</h2>
       <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
-      <button>SHOW ME</button>
+      <button class="showMeBtn">SHOW ME</button>
+      <div class="productOptions" id="stickerOptions">
+        <img class="productOptionsImg" id="babasKitchen" src="../assets/Baba_sKitchen-1.png" alt="Baba's Kitchen nail art stickers">
+        <img class="productOptionsImg" id="bohemia" src="../assets/Bohemia-2.png" alt="Bohemia nail art stickers">
+        <img class="productOptionsImg" id="artTherapy" src="../assets/arttherapy-1.png" alt="art therapy nail art stickers">
+      </div>
     </div>
     <div class="shadowDiv" id="stickersShadow">
     </div>
     
-    <div class="productDiv productRow" id="pslDiv">
-      <img class="featProduct" id="pslImg" src="../assets/PSL.png" alt="PSL nail lacquer">
+    <div class="productDiv productRow" id="lacquerDiv">
+      <img class="featProduct" id="lacquerImg" src="../assets/PSL.png" alt="PSL nail lacquer">
     </div>
-    <div class="textDiv productRow" id="pslTextDiv">
+    <div class="textDiv productRow" id="lacquerTextDiv">
       <h2>NAIL LACQUER</h2>
       <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
-      <button>SHOW ME</button>
+      <button class="showMeBtn">SHOW ME</button>
+      <div class="productOptions" id="lacquerOptions">
+        <img class="productOptionsImg" id="purpleLacquer" src="../assets/B036.png" alt="nail lacquer">
+        <img class="productOptionsImg" id="pinkLacquer" src="../assets/B024_1f087ab7-8d3e-4127-96bd-0a7fbddbcacd.png" alt="nail lacquer">
+        <img class="productOptionsImg" id="tealLacquer" src="../assets/B046.png" alt="nail lacquer">
+      </div>
     </div>
-    <div class="shadowDiv" id="pslShadow">
+    <div class="shadowDiv" id="lacquerShadow">
     </div>
     <div class="productDiv productRow" id="cocoOilDiv">
       <img class="featProduct" id="cocoOilImg" src="../assets/C003_coco.png" alt="coconut cuticle oil">
     </div>
     <div class="textDiv productRow" id="oilTextDiv">
       <h2>CUTICLE OIL</h2>
-      <p>Thin, flexible, sticky, and cute af, Jules spent way too much time designing these new nail art stickers to cure your stay-at-home blues.</p>
-      <button>SHOW ME</button>
+      <p>Deco Miami's cuticle oil formula is an ultra nourishing blend of vitamins and moisturizing organic oils that help to keep your cuticles feeling soft and healthy.</p>
+      <button class="showMeBtn">SHOW ME</button>
     </div>
     <div class="shadowDiv" id="cocoOilShadow">
     </div>
@@ -88,16 +98,36 @@
       opacity: 0})
     })
 
-    gsap.to('.butterfly_container', {
-      duration: 150,
-      motionPath: {
-        path: "M 20 0 C 20 53 44 45 52 52 C 387 169 666 -54 748 187"
-      },
-      yoyo: true
+    var fly1 = gsap.timeline()
+      fly1.to('.butterfly', {
+        duration: 30,
+        motionPath: {
+          path: "M 1500 178 C 1095 76 1067 216 1000 106 C 754 31 538 171 300 50"
+        }
+    })
+      fly1.to('.butterfly', {
+        rotationX: 200, 
+        duration: 0.01
+    })
+      fly1.to('.butterfly', {
+        duration: 50,
+        motionPath: {
+          path: "M 300 50 C 264 733 351 686 373 759 C 909 533 878 362 1373 530"
+        }        
+    })
+      fly1.to('.butterfly', {
+        rotationX: 36, 
+        duration: 0.01
+    })
+    fly1.to('.butterfly', {
+        duration: 30,
+        motionPath: {
+          path: "M 1373 530 C 1027 524 889 899 615 1171 C 332 1166 648 1515 -216 2490"
+        }        
     })
 
     gsap.to('body', {
-      backgroundColor: "#E2E8FF",
+      backgroundColor: "white",
       scrollTrigger: {
         trigger: '#pslDiv',
         start: 'top center',
@@ -108,7 +138,7 @@
     })
     
     gsap.to('body', {
-      backgroundColor: "white",
+      backgroundColor: "#E2E8FF",
       scrollTrigger: {
         trigger: '#cocoOilDiv',
         start: 'top center',
