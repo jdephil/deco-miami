@@ -4,7 +4,9 @@
 } 
 
 $imgwidth: 400px;
+$imgwidthMobile: 300px;
 $optionsWidth: 100px;
+$optionsWidthMobile: 50px;
 $shadowColor: #878787;
 $decoPurple: #E2E8FF;
 $pFont: 'Anonymous Pro', monospace;
@@ -117,6 +119,91 @@ p{
   display: inline-block;
   z-index: 2;
 }
+
+@media screen and (max-width: 768px) {
+  .featProduct {
+    width: 350px;
+  }
+  
+  #papaDiv {
+    width: 90%;
+  }
+
+  
+}
+
+@media screen and (max-width: 376px) {
+  .productOptionsImg {
+    width: $optionsWidthMobile
+  }
+  
+  #papaDiv{
+   
+    grid-template-rows: repeat(3, 300px 350px 100px);
+    grid-template-columns: 25px 325px 25px ;
+    width: 100%;
+  }
+
+  #stickersDiv {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  #stickersTextDiv {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+
+  #stickersImg {
+    grid-row: 2;
+    width: $imgwidthMobile;
+  }
+  
+  #stickersShadow {
+    grid-row: 3;
+    grid-column: 2;
+  }
+  
+  #lacquerDiv {
+    grid-row: 5;
+    grid-column: 2;
+  }
+  
+  #lacquerTextDiv {
+    grid-row: 4;
+    grid-column: 2;
+  }
+  #lacquerImg {
+    width: $imgwidthMobile;
+  }
+  #lacquerShadow {
+    grid-row: 6;
+    grid-column: 2;
+  }
+  
+  #cocoOilDiv {
+    grid-row: 8;
+    grid-column: 2;
+  }
+  
+  #oilTextDiv {
+    grid-row: 7;
+    grid-column: 2;
+  }
+  #cocoOilImg {
+    width: $imgwidthMobile;
+  }
+  #cocoOilShadow {
+    grid-row: 9;
+    grid-column: 2;
+  }
+
+  .butterfly_container{
+    display: none;
+  }
+}
+
 
 
 /**
@@ -275,5 +362,3 @@ p{
 }
 
   
-//
-
