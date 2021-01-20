@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let lacquerImg = document.getElementById('lacquerImg')
   let papaDiv = document.getElementById('papaDiv')
   let stickerOptionsDiv = document.getElementById('stickerOptions')
+  let lacquerOptionsDiv = document.getElementById('lacquerOptions')
   let babasKitchen = document.getElementById('babasKitchen')
   let bohemia = document.getElementById('bohemia')
   let artTherapy = document.getElementById('artTherapy')
@@ -26,6 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
     stickersImg.src = './assets/StarsInYourEyes-1.png'
   }
 
+  let returnImg2 = () => {
+    lacquerImg.src = './assets/PSL.png'
+  }
+
   papaDiv.addEventListener('mouseover', switchImg)
   stickerOptionsDiv.addEventListener('mouseout', returnImg)
+  lacquerOptionsDiv.addEventListener('mouseout', returnImg2)
 })
