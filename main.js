@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   } 
   
   let returnImg = () => {
-    stickersImg.src = '../assets/StarsInYourEyes-1.png'
+    stickersImg.src = './assets/StarsInYourEyes-1.png'
   }
 
   papaDiv.addEventListener('mouseover', switchImg)
